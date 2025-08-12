@@ -1,84 +1,79 @@
 # features
 
+| Compliance                      | Risk                          | Governance               | SecOps                     | Core                         | More                                          |
+| ------------------------------- | ----------------------------- | ------------------------ | -------------------------- | ---------------------------- | --------------------------------------------- |
+| Audit management                | Risk assessments and register | Policies                 | Incidents management       | Action plan tracking         | Data import wizard                            |
+| Campaigns management            | Ebios RM module               | Exceptions management    | findings tracking          | Assets management            | Recommendation engine                         |
+| +100 frameworks included        | Risk acceptance workflows     | Reports generation       | Vulnerabilities management | Dashboards and analytics     | KAFKA integration                             |
+| Custom frameworks supported     | Third Party Risk Management   | Projects and intiatives* | Periodic checks            | Rest API (swagger available) | Automated quality check (x-rays)              |
+| Automatic mapping               | Business Impact Analysis      | Custom KPI/KRI*          |                            | CLI  (automation)            | Single domain export/import (for consultants) |
+| Evidences management            | Cyber Risk Quantification*    |                          |                            | Flexible RBAC                | MCP support                                   |
+| GDPR processings                |                               |                          |                            | MFA with TOTP                | Email notifications                           |
+| Project security questionnaires |                               |                          |                            | SSO with SAML/OIDC           | Available in +20 languages                    |
+|                                 |                               |                          |                            | n8n node* (automation)       |                                               |
+
 ```mermaid
-flowchart TB
-  %% Overall layout direction
-  %% (Subgraphs use LR to form "rows")
-  %% Colors: rotate c1..c5 regardless of feature type
+flowchart LR
 
-  subgraph R1[ ]
-    direction LR
-    f1[Audit management]:::c1
-    f2[Campaigns management]:::c2
-    f3[+100 frameworks included]:::c3
+  %% Column 1
+  C1[Audit management]:::c1
+  C2[Campaigns management]:::c2
+  C3[+100 frameworks included]:::c3
+  C4[Custom frameworks support]:::c4
+  C5[Automatic mapping]:::c5
+  C6[Evidences collection]:::c1
+
+  %% Column 2
+  C7[Recommendation engine]:::c2
+  C8[API, CLI and Kafka integration]:::c3
+  C9[Automated quality checks]:::c4
+  C10[Dashboards and analytics]:::c5
+  C11[Risk Assessment]:::c1
+  C12[EBIOS RM module]:::c2
+
+  %% Column 3
+  C13[Data import/export capabilities]:::c3
+  C14[GDPR processings]:::c4
+  C15[Exceptions tracking]:::c5
+  C16[Action plan tracking and prioritization]:::c1
+  C17[Third Party Risk Management]:::c2
+  C18[Business Impact Analysis]:::c3
+
+  %% Column 4
+  C19[Findings followup]:::c4
+  C20[Incidents management]:::c5
+  C21[SaaS, on-premises or workstation]:::c1
+  C22[Flexible RBAC]:::c2
+  C23[MFA with TOTP and SSO with SAML/OIDC]:::c3
+  C24[Maturity tracking]:::c4
+  C25[Available in +20 languages]:::c5
+  C26[More coming soon!]:::c1
+
+  %% Arrange columns
+  subgraph Col1[ ]
+    direction TB
+    C1 --- C2 --- C3 --- C4 --- C5 --- C6
   end
 
-  subgraph R2[ ]
-    direction LR
-    f4[Custom frameworks<br/>support]:::c4
-    f5[Automatic mapping]:::c5
-    f6[Evidences collection]:::c1
+  subgraph Col2[ ]
+    direction TB
+    C7 --> C8 --> C9 --> C10 --> C11 --> C12
   end
 
-  subgraph R3[ ]
-    direction LR
-    f7[API, CLI and<br/>Kafka integration]:::c2
-    f8[Recommendation engine]:::c3
-    f9[Automated quality checks]:::c4
+  subgraph Col3[ ]
+    direction TB
+    C13 --> C14 --> C15 --> C16 --> C17 --> C18
   end
 
-  subgraph R4[ ]
-    direction LR
-    f10[Dashboards and analytics]:::c5
-    f11[Risk Assessment]:::c1
-    f12[EBIOS RM module]:::c2
+  subgraph Col4[ ]
+    direction TB
+    C19 --> C20 --> C21 --> C22 --> C23 --> C24 --> C25 --> C26
   end
 
-  subgraph R5[ ]
-    direction LR
-    f13[Data import/export<br/>capabilities]:::c3
-    f14[GDPR processings]:::c4
-    f15[Exceptions tracking]:::c5
-  end
+  %% Connect columns invisibly to keep them aligned
+  Col1 --- Col2 --- Col3 --- Col4
 
-  subgraph R6[ ]
-    direction LR
-    f16[Action plan tracking and<br/>prioritization]:::c1
-    f17[Third Party Risk<br/>Management]:::c2
-    f18[Business Impact Analysis]:::c3
-  end
-
-  subgraph R7[ ]
-    direction LR
-    f19[Findings followup]:::c4
-    f20[Incidents management]:::c5
-    f21[SaaS, on-premises<br/>or workstation]:::c1
-  end
-
-  subgraph R8[ ]
-    direction LR
-    f22[Flexible RBAC]:::c2
-    f23[MFA with TOTP and SSO<br/>with SAML/OIDC]:::c3
-    f24[Maturity tracking]:::c4
-  end
-
-  subgraph R9[ ]
-    direction LR
-    f25[Available in +20 languages]:::c5
-    f26[More coming soon!]:::c1
-  end
-
-  %% Optional very-light ordering nudges between rows (no arrows)
-  R1 --- R2
-  R2 --- R3
-  R3 --- R4
-  R4 --- R5
-  R5 --- R6
-  R6 --- R7
-  R7 --- R8
-  R8 --- R9
-
-  %% Color classes (rotate 5 colors)
+  %% Color palette (rotates every 5 items)
   classDef c1 fill:#eef2ff,stroke:#6366f1,stroke-width:1px,color:#0f172a;
   classDef c2 fill:#ecfeff,stroke:#06b6d4,stroke-width:1px,color:#0f172a;
   classDef c3 fill:#fef9c3,stroke:#a16207,stroke-width:1px,color:#0f172a;
